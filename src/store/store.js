@@ -39,6 +39,11 @@ const store = new Vuex.Store({
         }
 
     },
+    getters: {
+        activeAction: state => {
+            return state.activeAction;
+        }
+    },
     actions: {  },
     mutations: {
         updateConfigValue: (state, payload) => {

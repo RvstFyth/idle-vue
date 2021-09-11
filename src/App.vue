@@ -8,9 +8,36 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/settings">Settings</router-link>
     </div>
+    <div v-if="activeAction.skill">
+    <button class="btn btn-outline-dark btn-sm" v-on:click="stop">Stop</button> Active action: {{activeAction.skill}} ({{activeAction.resource}})
+    </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import {mapGetters} from 'vuex'
+export default {
+  computed: {
+    ...mapGetters({
+      activeAction: 'activeAction'
+    })
+  },
+  methods: {
+    stop() {
+      const activeAction = {
+        skill: null,
+        resource: null,
+        started: 0,
+        interval: 10,
+        last: 0
+      };
+
+      this.$store.commit('setActiveAction', activeAction);
+    }
+  }
+}
+</script>
 
 <style>
 #app {
