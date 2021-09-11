@@ -28,7 +28,6 @@ new Vue({
   data: {
     character: null,
     lastSaveTimestamp: 0,
-    saveInterval: 10,
   },
   mounted() {
     this.loop();
@@ -58,7 +57,7 @@ new Vue({
             }
           }
 
-          if(this.lastSaveTimestamp + this.saveInterval < system.timestamp()) {
+          if(this.lastSaveTimestamp + this.$store.state.config.saveInterval < system.timestamp()) {
             this.$store.commit('setCharacter', this.$store.state.character);
             localStorage.setItem('bank', JSON.stringify(this.$store.state.bank.items));
             this.$alertify.message(`Character saved!`);

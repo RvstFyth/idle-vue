@@ -29,11 +29,22 @@ const store = new Vuex.Store({
             started: 0,
             interval: 10,
             last: 0
+        },
+        config: {
+            notifications: {
+                save: true,
+                skillingResult: true
+            },
+            saveInterval: 10
         }
 
     },
     actions: {  },
     mutations: {
+        updateConfigValue: (state, payload) => {
+            if(state.config[payload.key]) state.config[payload.key] = payload.value;
+            // state.config = {...state.config}
+        },
         setCharacter: (state, character) => {
             state.character = character;
             if(character) localStorage.setItem('character', character.toJSON());
