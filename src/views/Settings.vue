@@ -10,6 +10,8 @@ export default {
   methods: {
     reset: function() {
       this.$store.commit('setCharacter', null);
+      this.$store.commit('bank/reset');
+      localStorage.removeItem('bank');
       this.$router.push('/')
     }
   }

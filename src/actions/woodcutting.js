@@ -13,7 +13,7 @@ module.exports = {
           skill: 'woodcutting',
           xp: mapping[store.state.activeAction.resource].xp
         });
-        store.commit('addToBank', {
+        store.commit('bank/add', {
             item: 'log',
             amount: 1
         });

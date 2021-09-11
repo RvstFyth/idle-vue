@@ -17,7 +17,7 @@
 <script>
 
 import Character from '../classes/character';
-import Bank from '../classes/bank';
+//import Bank from '../classes/bank';
 
 export default {
   methods: {
@@ -31,8 +31,6 @@ export default {
         this.$alertify.success(`Character with name ${this.data.newCharacterName} created!`);
         const char = new Character(this.data.newCharacterName);
         this.$store.commit('setCharacter', char);
-        const bank = new Bank();
-        this.$store.commit('setBank', bank);
         this.$router.push('Home')
       }
     }

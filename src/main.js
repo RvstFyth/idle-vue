@@ -60,7 +60,7 @@ new Vue({
 
           if(this.lastSaveTimestamp + this.saveInterval < system.timestamp()) {
             this.$store.commit('setCharacter', this.$store.state.character);
-            this.$store.commit('setBank', this.$store.state.bank);
+            localStorage.setItem('bank', JSON.stringify(this.$store.state.bank.items));
             this.$alertify.message(`Character saved!`);
             this.lastSaveTimestamp = system.timestamp()
           }
