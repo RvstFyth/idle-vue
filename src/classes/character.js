@@ -6,6 +6,7 @@ class Character
     constructor(name = '') {
         this.data = {
             name: name,
+            gold: 0,
             gear: {
                 axe: 1,
                 pickaxe: 1
@@ -17,17 +18,17 @@ class Character
                 cooking: new Skill(1),
                 mining: new Skill(1),
                 smithing: new Skill(1),
-                attack: new Skill(1),
-                strength: new Skill(1),
-                defence: new Skill(1),
-                ranged: new Skill(1),
-                magic: new Skill(1),
                 prayer: new Skill(1),
                 constitution: new Skill(1154),
                 crafting: new Skill(1),
                 fletching: new Skill(1),
                 runecrafting: new Skill(1),
-                dungeoneering: new Skill(1)
+                dungeoneering: new Skill(1),
+                attack: new Skill(1),
+                strength: new Skill(1),
+                defence: new Skill(1),
+                ranged: new Skill(1),
+                magic: new Skill(1),
             }
         }
     }
