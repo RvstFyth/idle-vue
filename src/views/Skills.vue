@@ -1,6 +1,7 @@
 <template>
   <div class="skills">
     <h1>Skills overview</h1>
+    <p>Total skills levels: {{totalLevels}}</p>
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <div class="col-sm-3" v-for="(value, name) in this.skills" v-bind:key="name">
         <div class="card">
@@ -36,6 +37,7 @@ export default {
   data() {
     return {
       skills: this.$store.state.character.data.skills,
+      totalLevels: Object.values(this.$store.state.character.data.skills).map(v => v.level).reduce((sum, x) => sum + x)
     }
   },
   methods: {
