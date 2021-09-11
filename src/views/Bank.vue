@@ -36,7 +36,7 @@ export default {
     sell(name) {
       const amount = parseInt(document.getElementById(name).value);
       this.character.data.gold += amount;
-      this.$store.commit('removeFromBank', {
+      this.$store.commit('bank/remove', {
         item: name, amount: amount
       });
       this.$alertify.success(`Sold ${amount} x ${name}`)
