@@ -14,7 +14,7 @@ module.exports = {
           xp: mapping[store.state.activeAction.resource].xp
         });
         store.commit('bank/add', {
-            item: 'log',
+            item: store.state.activeAction.resource,
             amount: 1
         });
         notifier.success(`Woodcutting: +${mapping[store.state.activeAction.resource].xp}XP and 1 ${store.state.activeAction.resource}`);
