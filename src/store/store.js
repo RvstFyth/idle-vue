@@ -44,11 +44,6 @@ const store = new Vuex.Store({
                 state.character.data.skills[payload.skill].addXP(payload.xp);
             }
         },
-        setBank: (state, bank) => {
-            state.bank = bank;
-            if(bank) localStorage.setItem('bank', bank.toJSON());
-            else localStorage.removeItem('bank');
-        },
         setActiveAction: (state, payload) => {
             state.activeAction = {
                 skill: payload.skill,
