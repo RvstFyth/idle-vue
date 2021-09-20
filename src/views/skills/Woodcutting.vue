@@ -27,18 +27,14 @@
 </template>
 
 <script>
+const wcAction = require('../../actions/woodcutting');
+
 export default {
   data() {
     return {
       skill: this.$store.state.character.data.skills.woodcutting,
       axe: this.$store.state.character.data.gear.axe,
-      resources: {
-        log: { name: 'log', level: 1, xp: 25, axe: 1, baseTime: 21},
-        oak: { name: 'oak log', level: 15, xp: 37.5, axe: 1, baseTime: 22},
-        willow: { name: 'willow log', level: 30, xp: 67.5, axe: 1, baseTime: 23},
-        maple: { name: 'maple log', level: 45, xp: 100, axe: 1, baseTime: 24},
-        yew: { name: 'yes log', level: 60, xp: 175, axe: 1, baseTime: 25},
-      },
+      resources: wcAction.mapping,
       axesMapping: ['none', 'bronze', 'iron', 'steel', 'mithril', 'adamant', 'rune']
     }
   },
