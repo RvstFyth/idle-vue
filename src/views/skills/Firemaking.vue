@@ -9,6 +9,7 @@
         <th>Level</th>
         <th>XP</th>
         <th><i class="bi bi-clock"></i></th>
+        <th>Bank</th>
         <th>Options</th>
       </tr>
       </thead>
@@ -18,6 +19,7 @@
         <td>{{value.level}}</td>
         <td>{{value.xp}}</td>
         <td>{{Math.max(2, parseInt(value.baseTime - (skill.level / 10)))}}s</td>
+        <td>{{$store.state.bank.items[name] ? $store.state.bank.items[name].amount : 0}}</td>
         <td><button class="btn btn-primary" v-if="skill.level >= value.level && $store.state.bank.items[$store.state.activeAction.resource]" v-on:click="start(name)">Light</button></td>
       </tr>
       </tbody>
