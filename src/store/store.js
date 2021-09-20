@@ -69,6 +69,15 @@ const store = new Vuex.Store({
                 last: Date.now() / 1000 | 0
             }
         },
+        resetActiveAction: (state) => {
+            state.activeAction = {
+                skill: null,
+                resource: null,
+                started: 0,
+                interval: 10,
+                last: 0
+            };
+        },
         setLastActiveAction: (state) => {
             state.activeAction.last = Date.now() / 1000 | 0
         },

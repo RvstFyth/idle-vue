@@ -33,6 +33,9 @@ const Bank = {
     getters: {
         items: state => {
             return state.items;
+        },
+        has: (state, item) => {
+            return state.items[item] && state.items[item].amount > 0
         }
     }
 }

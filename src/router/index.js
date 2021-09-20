@@ -8,6 +8,7 @@ import Shop from '../views/Shop'
 import Skills from '../views/Skills'
 import Start from '../views/Start'
 import Woodcutting from "../views/skills/Woodcutting";
+import Firemaking from "../views/skills/Firemaking";
 
 import store from '../store/store';
 
@@ -23,6 +24,7 @@ const routes = [
   { path: '/skills', name: 'Skills', component: Skills },
 
   { path: '/woodcutting', name: 'Woodcutting', component: Woodcutting },
+  { path: '/firemaking', name: 'Firemaking', component: Firemaking },
   // {
   //   path: '/skills',
   //   name: 'Skills',

@@ -18,7 +18,8 @@ Vue.use(IconsPlugin)
 Vue.use(VueAlertify)
 
 const actions = {
-  woodcutting: require('./actions/woodcutting')
+  woodcutting: require('./actions/woodcutting'),
+  firemaking: require('./actions/firemaking')
 };
 
 new Vue({
