@@ -1,6 +1,6 @@
 module.exports = {
 
-    timestamp: () => {
+    timestamp () {
         return Date.now() / 1000 | 0;
-    }
+    },
 }

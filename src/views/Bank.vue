@@ -12,7 +12,7 @@
       </thead>
       <tbody>
       <tr v-for="(value, name) in bankItems" v-bind:key="name">
-        <td>{{name}}</td>
+        <td>{{name | capitalize}}</td>
         <td>{{value.amount}}</td>
         <td>
           <input type="number" step="1" :value="value.amount" :id="name"> &nbsp;&nbsp;
@@ -47,6 +47,13 @@ export default {
       bankItems: 'bank/items'
     })
 
+  },
+  filters: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
   }
 
 }
