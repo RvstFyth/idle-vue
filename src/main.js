@@ -22,6 +22,9 @@ const actions = {
   firemaking: require('./actions/firemaking')
 };
 
+// Globally defined vueJS filters
+import './helpers/filters';
+
 new Vue({
   router,
   render: h => h(App),
