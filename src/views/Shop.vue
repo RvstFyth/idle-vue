@@ -47,7 +47,7 @@ export default {
           this.$store.commit('bank/add', {
             item: item.name, amount: amount
           });
-          this.$alertify.succes(`You bough ${amount} x` ${item.name})
+          this.$alertify.succes(`You bough ${amount} x ${item.name}`);
         }
       }
     }
