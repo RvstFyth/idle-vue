@@ -1,6 +1,7 @@
 <template>
   <div class="shop">
     <h1>Shop</h1>
+    <b>Gold:</b> {{character.data.gold}}
     <table class="table table-hover">
       <thead>
       <tr>
@@ -31,6 +32,7 @@ export default {
         {name: 'tinderbox', price: 250},
         {name: 'small fishing net', price: 500}
       ],
+      character: this.$store.state.character
     }
   },
   methods: {
