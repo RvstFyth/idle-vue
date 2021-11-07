@@ -9,6 +9,12 @@ module.exports = {
     },
 
     run (store, notifier) {
+        if(!store.state.bank.items['tinderbox']) {
+            notifier.error(`Firemaking requires a tinderbox..`);
+            store.commit('resetActiveAction');
+            return false;
+        }
+
         store.commit('setCharacterSkillXP', {
             skill: 'firemaking',
             xp: this.mapping[store.state.activeAction.resource].xp
