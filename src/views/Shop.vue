@@ -29,7 +29,7 @@ export default {
     return {
       shop: [
         {name: 'tinderbox', price: 250},
-        {name: 'small fishing net', price: 500}
+        {name: 'small fishing net', price: 1}
       ],
     }
   },
@@ -47,7 +47,7 @@ export default {
           this.$store.commit('bank/add', {
             item: item.name, amount: amount
           });
-          this.$alertify.succes(`You bough ${amount} x ${item.name}`);
+          this.$alertify.success(`You bought ${amount} x ${item.name}`);
         }
       }
     }
