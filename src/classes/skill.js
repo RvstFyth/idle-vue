@@ -2,12 +2,12 @@ const skillsHelper = require('../helpers/skills');
 
 class Skill {
   constructor(xp) {
-    this.xp = parseInt(xp);
+    this.xp = Number(xp);
     this.calculateProperties();
   }
 
   addXP(xp) {
-    this.xp += parseInt(xp);
+    this.xp += Number(xp);
     this.calculateProperties();
   }
 
@@ -19,7 +19,7 @@ class Skill {
 
     const diff = this.nextLevel - this.previousLevel;
     const progress = this.xp - this.previousLevel;
-    this.remainderPercentage = Math.floor(progress / diff * 100);
+    this.remainderPercentage = Math.floor((progress / diff) * 100);
   }
 }
 

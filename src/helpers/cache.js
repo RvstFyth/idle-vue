@@ -1,16 +1,16 @@
-const _cache = {};
+const cache = {};
 
 module.exports = {
 
   set(key, value) {
-    _cache[key] = value;
+    cache[key] = value;
   },
 
   get(key) {
-    return _cache[key];
+    return cache[key];
   },
 
   delete(key) {
-    delete _cache[key];
+    delete cache[key];
   },
 };

@@ -38,10 +38,10 @@ export default {
     return {
       skills: this.$store.state.character.data.skills,
       totalLevels: Object.values(this.$store.state.character.data.skills).map(v => v.level).reduce((sum, x) => sum + x)
-    }
+    };
   },
   methods: {
-    openSkillingPage: function (page) {
+    openSkillingPage(page) {
       page = valuesHelper.uppercaseFirst(page);
       const l = this.$router.resolve({name: page});
       if(l.resolved.matched.length) {

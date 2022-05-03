@@ -40,5 +40,7 @@ module.exports = {
       store.commit('resetActiveAction');
       return false;
     }
+
+    return true;
   },
 };

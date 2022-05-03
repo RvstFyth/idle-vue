@@ -1,4 +1,4 @@
-const _xpTable = [
+const xpTable = [
   0,
   0,
   83,
@@ -104,7 +104,7 @@ const _xpTable = [
 module.exports = {
   xpForLevel: (level) => {
     let total = 0;
-    for (let i = 1; i < level; i++) {
+    for (let i = 1; i < level; i += 1) {
       total += Math.floor(i + 300 * 2 ** (i / 7.0));
     }
     return Math.floor(total / 4);
@@ -112,8 +112,8 @@ module.exports = {
 
   levelForXp: (xp) => {
     let index;
-    for (index = 0; index < _xpTable.length; index++) {
-      if (_xpTable[index + 1] > xp) break;
+    for (index = 0; index < xpTable.length; index += 1) {
+      if (xpTable[index + 1] > xp) break;
     }
     return index;
   },
