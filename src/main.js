@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import VueAlertify from 'vue-alertify';
 import App from './App.vue';
 import store from './store/store';
 
@@ -8,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import router from './router';
-import VueAlertify from 'vue-alertify';
 
 // Globally defined vueJS filters
 import './helpers/filters';

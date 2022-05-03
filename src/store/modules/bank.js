@@ -11,7 +11,8 @@ const Bank = {
         };
       } else state.items[payload.item].amount += payload.amount;
 
-      state.items = { ...state.items }; // This is done, so vuex picks up the change, and the view gets updated.
+      // This is done, so vuex picks up the change, and the view gets updated.
+      state.items = { ...state.items };
     },
     remove: (state, payload) => {
       if (state.items[payload.item]) {
@@ -21,7 +22,8 @@ const Bank = {
           delete state.items[payload.item];
         }
 
-        state.items = { ...state.items }; // This is done, so vuex picks up the change, and the view gets updated.
+        // This is done, so vuex picks up the change, and the view gets updated.
+        state.items = { ...state.items };
       }
     },
     reset: (state) => {

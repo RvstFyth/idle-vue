@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import About from '../views/About';
-import Bank from '../views/Bank';
-import Settings from '../views/Settings';
-import Shop from '../views/Shop';
-import Skills from '../views/Skills';
-import Start from '../views/Start';
-import Woodcutting from '../views/skills/Woodcutting';
-import Firemaking from '../views/skills/Firemaking';
+import About from '../views/About.vue';
+import Bank from '../views/Bank.vue';
+import Settings from '../views/Settings.vue';
+import Shop from '../views/Shop.vue';
+import Skills from '../views/Skills.vue';
+import Start from '../views/Start.vue';
+import Woodcutting from '../views/skills/Woodcutting.vue';
+import Firemaking from '../views/skills/Firemaking.vue';
 
 import store from '../store/store';
 

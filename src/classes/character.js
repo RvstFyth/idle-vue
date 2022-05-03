@@ -35,14 +35,20 @@ class Character {
     this.data = JSON.parse(json);
     const ogSkills = { ...this.data.skills };
     this.data.skills = {};
-    for (const i in { ...ogSkills }) this.data.skills[i] = new Skill(ogSkills[i]);
+
+    Object.entries(ogSkills).forEach(([key, value]) => {
+      this.data.skills[key] = new Skill(value);
+    });
   }
 
   toJSON() {
     const data = { ...this.data };
-    const ogSkills = { ...data.skills };
     data.skills = {};
-    for (const i in { ...ogSkills }) data.skills[i] = ogSkills[i].xp;
+
+    Object.keys(this.data.skills).forEach((key) => {
+      data.skills[key] = this.data.skills[key].xp;
+    });
+
     return JSON.stringify(data);
   }
 }

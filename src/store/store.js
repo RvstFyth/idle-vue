@@ -15,9 +15,9 @@ let character;
 if (charData) {
   character = new Character();
   character.fromJSON(charData);
-} else {
+} else if (bankData) {
   // Cleanup old mess
-  if (bankData) localStorage.removeItem('bank');
+  localStorage.removeItem('bank');
 }
 
 const store = new Vuex.Store({
@@ -49,9 +49,9 @@ const store = new Vuex.Store({
       if (state.config[payload.key]) state.config[payload.key] = payload.value;
       // state.config = {...state.config}
     },
-    setCharacter: (state, character) => {
-      state.character = character;
-      if (character) localStorage.setItem('character', character.toJSON());
+    setCharacter: (state, char) => {
+      state.character = char;
+      if (char) localStorage.setItem('character', char.toJSON());
       else localStorage.removeItem('character');
     },
     setCharacterSkillXP: (state, payload) => {
@@ -84,7 +84,8 @@ const store = new Vuex.Store({
     },
     updateProgress: (state) => {
       const max = state.activeAction.interval;
-      const current = (state.activeAction.last + state.activeAction.interval) - system.timestampMs();
+      const next = (state.activeAction.last + state.activeAction.interval);
+      const current = next - system.timestampMs();
       state.activeAction.progress = Math.floor(100 - ((current / max) * 100));
     },
   },
@@ -95,13 +96,12 @@ const store = new Vuex.Store({
 
 if (bankData) {
   const items = JSON.parse(bankData);
-  for (const i in items) {
-    console.log(i, items[i]);
+  Object.entries(items).forEach(([key, value]) => {
     store.commit('bank/add', {
-      item: i,
-      amount: items[i].amount,
+      item: key,
+      amount: value.amount,
     });
-  }
+  });
   // store.state.bank.commit('fromJSON', bankData);
 }
 
