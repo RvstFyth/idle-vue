@@ -20,9 +20,12 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(VueAlertify);
 
+const woodcutting = require('./actions/woodcutting');
+const firemaking = require('./actions/firemaking');
+
 const actions = {
-  woodcutting: require('./actions/woodcutting'),
-  firemaking: require('./actions/firemaking'),
+  woodcutting,
+  firemaking,
 };
 
 new Vue({
