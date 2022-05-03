@@ -10,6 +10,16 @@
     </div>
     <div v-if="activeAction.skill">
     <button class="btn btn-outline-dark btn-sm" v-on:click="stop">Stop</button> Active action: {{activeAction.skill}} ({{activeAction.resource}})
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <br>
+          <div class="progress" style="height: 2px">
+            <div class="progress-bar bg-warning" role="progressbar" :style="{width: activeAction.progress+'%'}" :aria-valuenow="activeAction.progress" aria-valuemin="0" :aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
     </div>
     <router-view/>
   </div>

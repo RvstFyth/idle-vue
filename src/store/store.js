@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Character from '../classes/character';
+import Bank from './modules/bank';
+import system from "../helpers/system";
 // import Bank from '../classes/bank';
 
 Vue.use(Vuex);
-
-import Bank from './modules/bank';
 
 const charData = localStorage.getItem('character');
 const bankData = localStorage.getItem('bank');
@@ -28,7 +28,8 @@ const store = new Vuex.Store({
             resource: null,
             started: 0,
             interval: 10,
-            last: 0
+            last: 0,
+            progress: 0
         },
         config: {
             notifications: {
@@ -66,7 +67,8 @@ const store = new Vuex.Store({
                 resource: payload.resource,
                 started: Date.now() / 1000 | 0,
                 interval: payload.interval,
-                last: Date.now() / 1000 | 0
+                last: Date.now() / 1000 | 0,
+                progress: 0
             }
         },
         resetActiveAction: (state) => {
@@ -75,12 +77,19 @@ const store = new Vuex.Store({
                 resource: null,
                 started: 0,
                 interval: 10,
-                last: 0
+                last: 0,
+                progress: 0
             };
         },
         setLastActiveAction: (state) => {
-            state.activeAction.last = Date.now() / 1000 | 0
+            state.activeAction.last = Date.now() / 1000 | 0;
         },
+        updateProgress: (state) => {
+            const max = state.activeAction.interval;
+            const current = (state.activeAction.last + state.activeAction.interval) - system.timestamp();
+            state.activeAction.progress = 100 - ((current / max) * 100);
+            console.log(state.activeAction.progress)
+        }
     },
     modules: {
         bank: Bank

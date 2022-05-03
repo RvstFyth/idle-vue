@@ -50,6 +50,9 @@ new Vue({
                 actionFile.run(store, this.$alertify);
                 this.$store.commit('setLastActiveAction');
               }
+              else {
+                this.$store.commit('updateProgress');
+              }
             }
             else {
               this.$alertify.error(`Invalid active action defined..`);
