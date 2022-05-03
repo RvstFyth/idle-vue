@@ -46,11 +46,12 @@ new Vue({
           if(activeAction.skill && activeAction.resource) {
             const actionFile = actions[activeAction.skill];
             if(actionFile) {
-              if((activeAction.last + activeAction.interval < system.timestamp())) {
+              if((activeAction.last + activeAction.interval < system.timestampMs())) {
+                console.log(activeAction.last, activeAction.interval, system.timestampMs())
                 actionFile.run(store, this.$alertify);
                 this.$store.commit('setLastActiveAction');
               }
-              else {
+              else if (activeAction.skill) {
                 this.$store.commit('updateProgress');
               }
             }
@@ -71,7 +72,7 @@ new Vue({
             this.lastSaveTimestamp = system.timestamp()
           }
         }
-      }, 1000);
+      }, 150);
     }
   }
 }).$mount('#app')

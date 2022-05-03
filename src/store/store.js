@@ -65,9 +65,9 @@ const store = new Vuex.Store({
             state.activeAction = {
                 skill: payload.skill,
                 resource: payload.resource,
-                started: Date.now() / 1000 | 0,
-                interval: payload.interval,
-                last: Date.now() / 1000 | 0,
+                started: system.timestampMs(),
+                interval: payload.interval * 1000,
+                last: system.timestampMs(),
                 progress: 0
             }
         },
@@ -82,12 +82,12 @@ const store = new Vuex.Store({
             };
         },
         setLastActiveAction: (state) => {
-            state.activeAction.last = Date.now() / 1000 | 0;
+            state.activeAction.last = system.timestampMs();
         },
         updateProgress: (state) => {
             const max = state.activeAction.interval;
-            const current = (state.activeAction.last + state.activeAction.interval) - system.timestamp();
-            state.activeAction.progress = 100 - ((current / max) * 100);
+            const current = (state.activeAction.last + state.activeAction.interval) - system.timestampMs();
+            state.activeAction.progress = Math.floor(100 - ((current / max) * 100));
             console.log(state.activeAction.progress)
         }
     },
