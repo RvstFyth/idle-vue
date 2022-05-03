@@ -1,18 +1,18 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About'
-import Bank from '../views/Bank'
-import Settings from '../views/Settings'
-import Shop from '../views/Shop'
-import Skills from '../views/Skills'
-import Start from '../views/Start'
-import Woodcutting from "../views/skills/Woodcutting";
-import Firemaking from "../views/skills/Firemaking";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import About from '../views/About';
+import Bank from '../views/Bank';
+import Settings from '../views/Settings';
+import Shop from '../views/Shop';
+import Skills from '../views/Skills';
+import Start from '../views/Start';
+import Woodcutting from '../views/skills/Woodcutting';
+import Firemaking from '../views/skills/Firemaking';
 
 import store from '../store/store';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   { path: '/', name: 'Start', component: Start },
@@ -33,18 +33,18 @@ const routes = [
   //   // which is lazy-loaded when the route is visited.
   //   component: () => import(/* webpackChunkName: "about" */ '../views/Skills.vue')
   // }
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
 router.beforeEach((to, from, next) => {
-  if(!store.state.character && to.name !== 'Start') next({ name: 'Start' });
-  else if(store.state.character && to.name === 'Start') next({ name: 'Home' });
-  else next()
-})
+  if (!store.state.character && to.name !== 'Start') next({ name: 'Start' });
+  else if (store.state.character && to.name === 'Start') next({ name: 'Home' });
+  else next();
+});
 
-export default router
+export default router;
