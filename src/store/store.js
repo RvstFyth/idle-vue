@@ -88,7 +88,6 @@ const store = new Vuex.Store({
             const max = state.activeAction.interval;
             const current = (state.activeAction.last + state.activeAction.interval) - system.timestampMs();
             state.activeAction.progress = Math.floor(100 - ((current / max) * 100));
-            console.log(state.activeAction.progress)
         }
     },
     modules: {

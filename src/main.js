@@ -47,7 +47,6 @@ new Vue({
             const actionFile = actions[activeAction.skill];
             if(actionFile) {
               if((activeAction.last + activeAction.interval < system.timestampMs())) {
-                console.log(activeAction.last, activeAction.interval, system.timestampMs())
                 actionFile.run(store, this.$alertify);
                 this.$store.commit('setLastActiveAction');
               }
